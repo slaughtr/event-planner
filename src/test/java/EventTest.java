@@ -5,13 +5,13 @@ public class EventTest {
 
   @Test
   public void newParty_hasBaseCost() {
-    Event testEvent = new Event(0, "", "", "", "");
+    Event testEvent = new Event(0.0, "", "", "", "");
     assertEquals(100.0, testEvent.getCost(), 0.01);
   }
 
   @Test
   public void newParty_hasMoreCostWithMorePeople() {
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "", "", "");
     assertEquals(150.0, testEvent.getCost(), 0.01);
   }
@@ -19,7 +19,7 @@ public class EventTest {
   @Test
   public void newParty_hasMoreCostWithFood() {
     String typeFood = "snacks";
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, typeFood, "", "", "");
     assertEquals(200.0, testEvent.getCost(), 0.01);
   }
@@ -27,7 +27,7 @@ public class EventTest {
   @Test
   public void newParty_hasDifferentCostWithDifferentFood() {
     String snacks = "snacks";
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, snacks, "", "", "");
     assertEquals(200.0, testEvent.getCost(), 0.01);
     String fancySnacks = "fancy snacks";
@@ -43,7 +43,7 @@ public class EventTest {
 
   @Test
   public void newParty_hasSameCostWithWater() {
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "water", "", "");
     assertEquals(150.0, testEvent.getCost(), 0.01);
   }
@@ -51,7 +51,7 @@ public class EventTest {
   @Test
   public void newParty_hasDifferentCostWithDifferentDrinks() {
     String water = "water";
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", water, "", "");
     assertEquals(150.0, testEvent.getCost(), 0.01);
     String coffeeAndTea = "coffee and tea";
@@ -67,7 +67,7 @@ public class EventTest {
 
   @Test
   public void newParty_hasIncreasedCostWithEntertainment() {
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "", "clown", "");
     assertEquals(250.0, testEvent.getCost(), 0.01);
   }
@@ -75,7 +75,7 @@ public class EventTest {
   @Test
   public void newParty_hasDifferentCostWithDifferentEntertainment() {
     String clown = "clown";
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "", clown, "");
     assertEquals(250.0, testEvent.getCost(), 0.01);
     String performanceArt = "performance art";
@@ -92,22 +92,22 @@ public class EventTest {
   @Test
   public void newParty_hasDifferentCostWithDifferentCombinationsOfFoodDrinkAndEntertainment() {
     //10 people, water, no food, no entertainment
-    Event testEvent = new Event(10, "", "water", "", "");
+    Event testEvent = new Event(10.0, "", "water", "", "");
     assertEquals(150.0, testEvent.getCost(), 0.01);
     //100 people, coffee, snacks, clown
-    Event secondTestEvent = new Event(100, "snacks", "coffee and tea", "clown", "");
+    Event secondTestEvent = new Event(100.0, "snacks", "coffee and tea", "clown", "");
     assertEquals(775.0, secondTestEvent.getCost(), 0.01);
     //111 people, alcohol, snacks, dj
-    Event thirdTestEvent = new Event(111, "snacks", "alcohol", "dj", "");
+    Event thirdTestEvent = new Event(111.0, "snacks", "alcohol", "dj", "");
     assertEquals(1255.0, thirdTestEvent.getCost(), 0.01);
     //it's a festival! 100000 people, full meals, alcohol, diplo. They seem to be underpaying....
-    Event fourthTestEvent = new Event(100000, "full meal", "alcohol", "diplo", "");
+    Event fourthTestEvent = new Event(100000.0, "full meal", "alcohol", "diplo", "");
     assertEquals(600750.0, fourthTestEvent.getCost(), 0.01);
   }
 
   @Test
   public void newParty_hasDecreasedCostWithCoupon() {
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "", "", "get10off");
     assertEquals(140.0, testEvent.getCost(), 0.01);
   }
@@ -115,7 +115,7 @@ public class EventTest {
   @Test
   public void newParty_hasDifferentCostWithDifferentCoupons() {
     String tenOff = "get10off";
-    int tenPeople = 10;
+    Double tenPeople = 10.0;
     Event testEvent = new Event(tenPeople, "", "", "", tenOff);
     assertEquals(140.0, testEvent.getCost(), 0.01);
     String privateDinner = "privatedinnerfuntime";
@@ -123,7 +123,7 @@ public class EventTest {
     assertEquals(50.0, secondTestEvent.getCost(), 0.01);
     String danceParty = "justadanceparty";
     //have to manually set numPeople here or it'd be negative
-    Event thirdTestEvent = new Event(50, "", "", "", "justadanceparty");
+    Event thirdTestEvent = new Event(50.0, "", "", "", "justadanceparty");
     assertEquals(315.0, thirdTestEvent.getCost(), 0.01);
     String onePercent = "onepercenter";
     Event fourthTestEvent = new Event(tenPeople, "", "", "", "onepercenter");

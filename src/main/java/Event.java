@@ -61,6 +61,7 @@ public class Event{
   }
 
   public Double getCouponCode() {
+    //add logic here? or just let them know on front end?
     Double couponDiscount = 0.0;
 
     if (mCouponCode.equals("get10off")) {
@@ -72,7 +73,7 @@ public class Event{
       //if more than 50 people and no food + alcohol + dj/diplo
       couponDiscount = 200.0;
     } else if (mCouponCode.equals("onepercenter")) {
-      //if getting best in every category, offer 1% discount for the richies
+      //if getting best in every category and over 500 people, offer 1% discount for the richies
       couponDiscount = (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())*0.1;
     }
     return couponDiscount;

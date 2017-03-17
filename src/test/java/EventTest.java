@@ -112,4 +112,21 @@ public class EventTest {
     assertEquals(140.0, testEvent.getCost(), 0.01);
   }
 
+  @Test
+  public void newParty_hasDifferentCostWithDifferentCoupons() {
+    String tenOff = "get10off";
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople, "", "", "", tenOff);
+    assertEquals(140.0, testEvent.getCost(), 0.01);
+    String privateDinner = "privatedinnerfuntime";
+    Event secondTestEvent = new Event(tenPeople, "", "", "", "privatedinnerfuntime");
+    assertEquals(50.0, secondTestEvent.getCost(), 0.01);
+    String danceParty = "justadanceparty";
+    //have to manually set numPeople here or it'd be negative
+    Event thirdTestEvent = new Event(20, "", "", "", "justadanceparty");
+    assertEquals(0.0, thirdTestEvent.getCost(), 0.01);
+    String onePercent = "onepercenter";
+    Event fourthTestEvent = new Event(tenPeople, "", "", "", "onepercenter");
+    assertEquals(135.0, fourthTestEvent.getCost(), 0.01);
+  }
 }

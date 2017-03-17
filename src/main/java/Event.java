@@ -21,6 +21,12 @@ public class Event{
 
     if (mTypeFood.equals("snacks")) {
       foodCost = 50;
+    } else if (mTypeFood.equals("fancy snacks")) {
+      foodCost = 100;
+    } else if (mTypeFood.equals("simple meal")) {
+      foodCost = 200;
+    } else if (mTypeFood.equals("full meal")) {
+      foodCost = 400;
     }
     return mBaseCost+(mNumPeople*5)+foodCost;
   }

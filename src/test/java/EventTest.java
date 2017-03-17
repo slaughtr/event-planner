@@ -105,4 +105,11 @@ public class EventTest {
     assertEquals(600750.0, fourthTestEvent.getCost(), 0.01);
   }
 
+  @Test
+  public void newParty_hasDecreasedCostWithCoupon() {
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople, "", "", "", "get10off");
+    assertEquals(140.0, testEvent.getCost(), 0.01);
+  }
+
 }

@@ -9,14 +9,20 @@ public class Event{
   private String mTypeDrink;
   private String mTypeEntertainment;
 
-  public Event(int people) {
+  public Event(int people, String food) {
     mBaseCost = 100;
     mNumPeople = people;
+    mTypeFood = food;
   }
 
   public int getCost() {
     int pricePerPerson = 5;
-    return mBaseCost+(mNumPeople*5);
+    int foodCost = 0;
+
+    if (mTypeFood.equals("snacks")) {
+      foodCost = 50;
+    }
+    return mBaseCost+(mNumPeople*5)+foodCost;
   }
 
 }

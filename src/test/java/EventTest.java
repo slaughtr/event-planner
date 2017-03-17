@@ -23,4 +23,19 @@ public class EventTest {
     Event testEvent = new Event(tenPeople, typeFood);
     assertEquals(200, testEvent.getCost());
   }
+
+  @Test
+  public void newParty_hasDifferentCostWithDifferentFood() {
+    String typeFood = "";
+    int tenPeople = 10;
+    typeFood = "snacks";
+    Event testEvent = new Event(tenPeople, typeFood);
+    assertEquals(200, testEvent.getCost());
+    typeFood = "fancy snacks";
+    assertEquals(250, testEvent.getCost());
+    typeFood = "simple meal";
+    assertEquals(350, testEvent.getCost());
+    typeFood = "full meal";
+    assertEquals(550, testEvent.getCost());
+  }
 }

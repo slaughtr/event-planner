@@ -5,15 +5,16 @@ public class EventTest {
 
   @Test
   public void newParty_hasBaseCost() {
-    Event testEvent = new Event();
+    Event testEvent = new Event(0);
     int baseCost = 100;
     assertEquals(baseCost, testEvent.getCost());
   }
 
   @Test
   public void newParty_hasMoreCostWithMorePeople() {
-    Event testEvent = new Event();
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople);
     int costWithTenPeople = 150;
-    assertEquals(costWithTenPeople, testEvent.getCost()); 
+    assertEquals(costWithTenPeople, testEvent.getCost());
   }
 }

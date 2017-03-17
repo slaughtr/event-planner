@@ -16,7 +16,7 @@ public class Event{
 
   public int getCost() {
     int pricePerPerson = 5;
-    return mBaseCost;//+(mNumPeople*5);
+    return mBaseCost+(mNumPeople*5);
   }
 
 }

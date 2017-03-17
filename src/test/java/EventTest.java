@@ -65,4 +65,11 @@ public class EventTest {
     assertEquals(400, fourthTestEvent.getCost());
   }
 
+  @Test
+  public void newParty_hasIncreasedCostWithEntertainment() {
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople, "", "", "clown");
+    assertEquals(250, testEvent.getCost());
+  }
+
 }

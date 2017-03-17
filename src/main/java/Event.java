@@ -17,6 +17,20 @@ public class Event{
     mTypeEntertainment = entertainment;
   }
 
+  public int getFoodCost() {
+    int foodCost = 0;
+
+    if (mTypeFood.equals("snacks")) {
+      foodCost = 50;
+    } else if (mTypeFood.equals("fancy snacks")) {
+      foodCost = 100;
+    } else if (mTypeFood.equals("simple meal")) {
+      foodCost = 200;
+    } else if (mTypeFood.equals("full meal")) {
+      foodCost = 400;
+    }
+    return foodCost;
+  }
 
   public int getDrinkCost() {
     int drinkCost = 0;
@@ -33,24 +47,24 @@ public class Event{
     return drinkCost;
   }
 
-  public int getFoodCost() {
-    int foodCost = 0;
+  public int getEntertainmentCost() {
+    int entertainmentCost = 0;
 
-    if (mTypeFood.equals("snacks")) {
-      foodCost = 50;
-    } else if (mTypeFood.equals("fancy snacks")) {
-      foodCost = 100;
-    } else if (mTypeFood.equals("simple meal")) {
-      foodCost = 200;
-    } else if (mTypeFood.equals("full meal")) {
-      foodCost = 400;
+    if (mTypeEntertainment.equals("clown")) {
+      entertainmentCost = 100;
+    } else if (mTypeEntertainment.equals("performance art")) {
+      entertainmentCost = 250;
+    } else if (mTypeEntertainment.equals("dj")) {
+      entertainmentCost = 300;
+    } else if (mTypeEntertainment.equals("diplo")) {
+      entertainmentCost = 100000;
     }
-    return foodCost;
+    return entertainmentCost;
   }
 
   public int getCost() {
     int pricePerPerson = 5;
-    return mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost();
+    return mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost();
   }
 
 }

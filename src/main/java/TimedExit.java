@@ -13,5 +13,4 @@ public void run() {
 public TimedExit() {
 timer.schedule(exitApp, new Date(System.currentTimeMillis()+5*1000));
     }
-
 }

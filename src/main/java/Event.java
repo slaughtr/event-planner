@@ -15,8 +15,7 @@ public class Event{
     mTypeFood = food;
   }
 
-  public int getCost() {
-    int pricePerPerson = 5;
+  public int getFoodCost() {
     int foodCost = 0;
 
     if (mTypeFood.equals("snacks")) {
@@ -28,7 +27,11 @@ public class Event{
     } else if (mTypeFood.equals("full meal")) {
       foodCost = 400;
     }
-    return mBaseCost+(mNumPeople*5)+foodCost;
+    return foodCost;
+  }
+  public int getCost() {
+    int pricePerPerson = 5;
+    return mBaseCost+(mNumPeople*5)+getFoodCost();
   }
 
 }

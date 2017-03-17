@@ -17,6 +17,22 @@ public class Event{
     mTypeEntertainment = entertainment;
   }
 
+
+  public int getDrinkCost() {
+    int drinkCost = 0;
+
+    if (mTypeDrink.equals("water")) {
+      drinkCost = 0;
+    } else if (mTypeDrink.equals("coffee and tea")) {
+      drinkCost = 25;
+    } else if (mTypeDrink.equals("smoothies")) {
+      drinkCost = 100;
+    } else if (mTypeDrink.equals("alcohol")) {
+      drinkCost = 250;
+    }
+    return drinkCost;
+  }
+
   public int getFoodCost() {
     int foodCost = 0;
 
@@ -31,9 +47,10 @@ public class Event{
     }
     return foodCost;
   }
+
   public int getCost() {
     int pricePerPerson = 5;
-    return mBaseCost+(mNumPeople*5)+getFoodCost();
+    return mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost();
   }
 
 }

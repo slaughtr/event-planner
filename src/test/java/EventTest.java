@@ -47,4 +47,22 @@ public class EventTest {
     Event testEvent = new Event(tenPeople, "", "water", "");
     assertEquals(150, testEvent.getCost());
   }
+
+  @Test
+  public void newParty_hasDifferentCostWithDifferentDrinks() {
+    String water = "water";
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople, "", "water", "");
+    assertEquals(150, testEvent.getCost());
+    String coffeeAndTea = "coffee and tea";
+    Event secondTestEvent = new Event(tenPeople, "", "coffee and tea", "");
+    assertEquals(175, secondTestEvent.getCost());
+    String smoothies = "smoothies";
+    Event thirdTestEvent = new Event(tenPeople, "", "smoothies", "");
+    assertEquals(250, thirdTestEvent.getCost());
+    String alcohol = "alcohol";
+    Event fourthTestEvent = new Event(tenPeople, "", "alcohol", "");
+    assertEquals(400, fourthTestEvent.getCost());
+  }
+
 }

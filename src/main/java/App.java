@@ -37,7 +37,7 @@ public class App{
 		String shouldContinue = "1";
 		// TimedExit newTimer = new TimedExit();
 
-		int people = 0;
+		Double people = 0.0;
 		String food = "";
 		String drink = "";
 		String entertainment = "";
@@ -60,7 +60,7 @@ public class App{
 		//how many people
 		System.out.println("Hey how many people dude");
 		String numPeople = userInput.readLine();
-		people = Integer.parseInt(numPeople);
+		people = Double.parseDouble(numPeople);
 		//food?
 		while(shouldContinue.equals("2")) {
 			System.out.println("Y'all gonna eat? We have lots of options: ");
@@ -140,11 +140,20 @@ public class App{
 			}
 		}
 
-		//offer coupon codes
-		// if (selectedthingsright) {
-		// 	System.out.println("Hey looks like you're up for some coupons.");
-		// }
-
+		// offer coupon codes
+		while(shouldContinue.equals("5")) {
+			System.out.println("Checking to see if you're eligible for some coupons, dude.");
+			if (people < 50.0 && food.equals("full meal") && drink.equals("alcohol")) {
+				System.out.println("Hey, rad dude! Seems like you might be having a private dinner! Let's, like, save you $100! That coupon code is [privatedinnerfuntime]. Just put that in at the end!");
+				shouldContinue = "6";
+			} else if (people > 50.0 && food.equals("") && drink.equals("alcohol") && (entertainment.equals("dj") || entertainment.equals("diplo"))) {
+				System.out.println("Awh snap, dude! Looks like you're having a dance party! Since I, like, totally love to dance, I'll give you 10% off, dude! But I'm coming to cut a rug for sure. Just, like, enter [justadanceparty] at the end!");
+				shouldContinue = "6";
+			} else if (people > 500.0 && food.equals("full meal") && drink.equals("alcohol")) {
+				System.out.println("Hey dude, we're gonna give you, like, 1% off your total because it looks like this is a fancy gala event or something");
+				shouldContinue = "6";
+			}
+		}
 		//print final price
 		Event newEvent = new Event(people, food, drink, entertainment, coupon); //I always lol at these lines.
 

@@ -123,10 +123,10 @@ public class EventTest {
     assertEquals(50.0, secondTestEvent.getCost(), 0.01);
     String danceParty = "justadanceparty";
     //have to manually set numPeople here or it'd be negative
-    Event thirdTestEvent = new Event(20, "", "", "", "justadanceparty");
-    assertEquals(0.0, thirdTestEvent.getCost(), 0.01);
+    Event thirdTestEvent = new Event(50, "", "", "", "justadanceparty");
+    assertEquals(315.0, thirdTestEvent.getCost(), 0.01);
     String onePercent = "onepercenter";
     Event fourthTestEvent = new Event(tenPeople, "", "", "", "onepercenter");
-    assertEquals(135.0, fourthTestEvent.getCost(), 0.01);
+    assertEquals(148.5, fourthTestEvent.getCost(), 0.01);
   }
 }

@@ -1,13 +1,13 @@
 public class Event{
-  private int mBaseCost;
-  private int mNumPeople;
+  private Double mBaseCost;
+  private Double mNumPeople;
   private String mTypeFood;
   private String mTypeDrink;
   private String mTypeEntertainment;
   private String mCouponCode;
 
-  public Event(int people, String food, String drink, String entertainment, String coupon) {
-    mBaseCost = 100;
+  public Event(Double people, String food, String drink, String entertainment, String coupon) {
+    mBaseCost = 100.0;
     mNumPeople = people;
     mTypeFood = food;
     mTypeDrink = drink;
@@ -15,47 +15,47 @@ public class Event{
     mCouponCode = coupon;
   }
 
-  public int getFoodCost() {
-    int foodCost = 0;
+  public Double getFoodCost() {
+    Double foodCost = 0.0;
 
     if (mTypeFood.equals("snacks")) {
-      foodCost = 50;
+      foodCost = 50.0;
     } else if (mTypeFood.equals("fancy snacks")) {
-      foodCost = 100;
+      foodCost = 100.0;
     } else if (mTypeFood.equals("simple meal")) {
-      foodCost = 200;
+      foodCost = 200.0;
     } else if (mTypeFood.equals("full meal")) {
-      foodCost = 400;
+      foodCost = 400.0;
     }
     return foodCost;
   }
 
-  public int getDrinkCost() {
-    int drinkCost = 0;
+  public Double getDrinkCost() {
+    Double drinkCost = 0.0;
 
     if (mTypeDrink.equals("water")) {
-      drinkCost = 0;
+      drinkCost = 0.0;
     } else if (mTypeDrink.equals("coffee and tea")) {
-      drinkCost = 25;
+      drinkCost = 25.0;
     } else if (mTypeDrink.equals("smoothies")) {
-      drinkCost = 100;
+      drinkCost = 100.0;
     } else if (mTypeDrink.equals("alcohol")) {
-      drinkCost = 250;
+      drinkCost = 250.0;
     }
     return drinkCost;
   }
 
-  public int getEntertainmentCost() {
-    int entertainmentCost = 0;
+  public Double getEntertainmentCost() {
+    Double entertainmentCost = 0.0;
 
     if (mTypeEntertainment.equals("clown")) {
-      entertainmentCost = 100;
+      entertainmentCost = 100.0;
     } else if (mTypeEntertainment.equals("performance art")) {
-      entertainmentCost = 250;
+      entertainmentCost = 250.0;
     } else if (mTypeEntertainment.equals("dj")) {
-      entertainmentCost = 300;
+      entertainmentCost = 300.0;
     } else if (mTypeEntertainment.equals("diplo")) {
-      entertainmentCost = 100000;
+      entertainmentCost = 100000.0;
     }
     return entertainmentCost;
   }
@@ -71,16 +71,16 @@ public class Event{
       couponDiscount = 100.0;
     } else if (mCouponCode.equals("justadanceparty")) {
       //if more than 50 people and no food + alcohol + dj/diplo
-      couponDiscount = 200.0;
-    } else if (mCouponCode.equals("onepercenter")) {
-      //if getting best in every category and over 500 people, offer 1% discount for the richies
       couponDiscount = (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())*0.1;
+    } else if (mCouponCode.equals("onepercenter")) {
+      //if getting best in both food and drink and over 500 people, offer 1% discount for the richies
+      couponDiscount = (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())*0.01;
     }
     return couponDiscount;
   }
 
   public Double getCost() {
-    int pricePerPerson = 5;
+    Double pricePerPerson = 5.0;
     return (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())-getCouponCode();
   }
 

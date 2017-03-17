@@ -72,4 +72,21 @@ public class EventTest {
     assertEquals(250, testEvent.getCost());
   }
 
+  @Test
+  public void newParty_hasDifferentCostWithDifferentEntertainment() {
+    String clown = "clown";
+    int tenPeople = 10;
+    Event testEvent = new Event(tenPeople, "", "", "clown");
+    assertEquals(250, testEvent.getCost());
+    String performanceArt = "performance art";
+    Event secondTestEvent = new Event(tenPeople, "", "", "performance art");
+    assertEquals(400, secondTestEvent.getCost());
+    String dj = "dj";
+    Event thirdTestEvent = new Event(tenPeople, "", "", "dj");
+    assertEquals(450, thirdTestEvent.getCost());
+    String diplo = "diplo";
+    Event fourthTestEvent = new Event(tenPeople, "", "", "diplo");
+    assertEquals(100150, fourthTestEvent.getCost());
+  }
+
 }

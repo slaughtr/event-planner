@@ -1,35 +1,4 @@
 import java.io.Console;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-
-//System.out.println("+(char)27 + "[34mblue" + (char)27 + "[0m);
-//^^^^^^ used to color text, will implement later ^^^^^
-//make some String vars out of the below and use String.format for ease
-
-// 30 black
-// 31 red
-// 32 green
-// 33 yellow
-// 34 blue
-// 35 magenta
-// 36 cyan
-// 37 white
-// 40 black background
-// 41 red background
-// 42 green background
-// 43 yellow background
-// 44 blue background
-// 45 magenta background
-// 46 cyan background
-// 47 white background
-// 1 make bright (usually just bold)
-// 21 stop bright (normalizes boldness)
-// 4 underline
-// 24 stop underline
-// 0 clear all formatting
-// So, System.out.println((char)27 + "[30;36;1m"); will give you blue text with a yellow background.
-
 //JUST TO BE CLEAR, DUDE IS A GENDER NEUTRAL TERM. SOURCE: GOODBURGER
 public class App{
 	public static void main(String[] args) {
@@ -37,7 +6,6 @@ public class App{
 		int shouldContinue = 1;
 		boolean fromContinue = false;
 		boolean wholeAppExit = false;
-		// TimedExit newTimer = new TimedExit();
 
 		Double people = 0.0;
 		String food = "";
@@ -55,8 +23,7 @@ public class App{
 					shouldContinue = 2;
 				} else if (wannaParty.equals("n")) {
 					System.out.println("Well that's a bummer, dude.");
-					System.out.println("Exiting this fantastic app in 5 seconds...");
-					// newTimer.TimedExit(); //I'll figure this bit out eventually.
+					System.out.println("Exiting this fantastic app...");
 					System.exit(0);
 				}
 			}

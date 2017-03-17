@@ -168,8 +168,8 @@ public class App{
 			//print final price
 			while(shouldContinue == 8){
 				Event newEvent = new Event(people, food, drink, entertainment, coupon); //I always lol at these lines. so hilariously redundant
-				String finalCost = Double.toString(newEvent.getCost());
-				System.out.println("\n\nThat'll cost you:  "+(char)27 + "[32m$"+finalCost+(char)27 + "[0m");
+				Double finalCost = newEvent.getCost();
+				System.out.println(String.format("\n\nThat'll cost you:  "+(char)27 + "[32m$%.2f"+(char)27 + "[0m", finalCost));
 				System.out.println("Thanks for your business!"+(char)27 + "[0m");
 				System.exit(0);
 			}

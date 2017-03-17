@@ -9,10 +9,12 @@ public class Event{
   private String mTypeDrink;
   private String mTypeEntertainment;
 
-  public Event(int people, String food) {
+  public Event(int people, String food, String drink, String entertainment) {
     mBaseCost = 100;
     mNumPeople = people;
     mTypeFood = food;
+    mTypeDrink = drink;
+    mTypeEntertainment = entertainment;
   }
 
   public int getFoodCost() {

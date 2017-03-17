@@ -91,19 +91,18 @@ public class EventTest {
 
   @Test
   public void newParty_hasDifferentCostWithDifferentCombinationsOfFoodDrinkAndEntertainment() {
-    String water = "water";
-    int tenPeople = 10;
-    Event testEvent = new Event(tenPeople, "", water, "");
+    //10 people, water, no food, no entertainment
+    Event testEvent = new Event(10, "", "water", "");
     assertEquals(150, testEvent.getCost());
-    String coffeeAndTea = "coffee and tea";
-    Event secondTestEvent = new Event(tenPeople, "", coffeeAndTea, "");
-    assertEquals(175, secondTestEvent.getCost());
-    String smoothies = "smoothies";
-    Event thirdTestEvent = new Event(tenPeople, "", smoothies, "");
-    assertEquals(250, thirdTestEvent.getCost());
-    String alcohol = "alcohol";
-    Event fourthTestEvent = new Event(tenPeople, "", alcohol, "");
-    assertEquals(400, fourthTestEvent.getCost());
+    //100 people, coffee, snacks, clown
+    Event secondTestEvent = new Event(100, "snacks", "coffee and tea", "clown");
+    assertEquals(775, secondTestEvent.getCost());
+    //111 people, alcohol, snacks, dj
+    Event thirdTestEvent = new Event(111, "snacks", "alcohol", "dj");
+    assertEquals(1255, thirdTestEvent.getCost());
+    //it's a festival! 100000 people, full meals, alcohol, diplo
+    Event fourthTestEvent = new Event(100000, "full meal", "alcohol", "diplo");
+    assertEquals(600750, fourthTestEvent.getCost());
   }
 
 }

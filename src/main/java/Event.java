@@ -60,17 +60,17 @@ public class Event{
     return entertainmentCost;
   }
 
-  public double getCouponCode() {
-    double couponDiscount = 0;
+  public Double getCouponCode() {
+    Double couponDiscount = 0.0;
 
     if (mCouponCode.equals("get10off")) {
-      couponDiscount = 10;
+      couponDiscount = 10.0;
     } else if (mCouponCode.equals("privatedinnerfuntime")) {
       //if less than 50 people and they get full meal + alcohol
-      couponDiscount = 100;
+      couponDiscount = 100.0;
     } else if (mCouponCode.equals("justadanceparty")) {
       //if more than 50 people and no food + alcohol + dj/diplo
-      couponDiscount = 200;
+      couponDiscount = 200.0;
     } else if (mCouponCode.equals("onepercenter")) {
       //if getting best in every category, offer 1% discount for the richies
       couponDiscount = (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())*0.1;
@@ -78,7 +78,7 @@ public class Event{
     return couponDiscount;
   }
 
-  public double getCost() {
+  public Double getCost() {
     int pricePerPerson = 5;
     return (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())-getCouponCode();
   }

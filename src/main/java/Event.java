@@ -1,20 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
-
 public class Event{
   private int mBaseCost;
   private int mNumPeople;
   private String mTypeFood;
   private String mTypeDrink;
   private String mTypeEntertainment;
+  private String mCouponCode;
 
-  public Event(int people, String food, String drink, String entertainment) {
+  public Event(int people, String food, String drink, String entertainment, String coupon) {
     mBaseCost = 100;
     mNumPeople = people;
     mTypeFood = food;
     mTypeDrink = drink;
     mTypeEntertainment = entertainment;
+    mCouponCode = coupon;
   }
 
   public int getFoodCost() {
@@ -62,9 +60,27 @@ public class Event{
     return entertainmentCost;
   }
 
-  public int getCost() {
+  public double getCouponCode() {
+    double couponDiscount = 0;
+
+    if (mCouponCode.equals("get10off")) {
+      couponDiscount = 10;
+    } else if (mCouponCode.equals("privatedinnerfuntime")) {
+      //if less than 50 people and they get full meal + alcohol
+      couponDiscount = 100;
+    } else if (mCouponCode.equals("justadanceparty")) {
+      //if more than 50 people and no food + alcohol + dj/diplo
+      couponDiscount = 200;
+    } else if (mCouponCode.equals("onepercenter")) {
+      //if getting best in every category, offer 1% discount for the richies
+      couponDiscount = (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())*0.1;
+    }
+    return couponDiscount;
+  }
+
+  public double getCost() {
     int pricePerPerson = 5;
-    return mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost();
+    return (mBaseCost+(mNumPeople*5)+getFoodCost()+getDrinkCost()+getEntertainmentCost())-getCouponCode();
   }
 
 }

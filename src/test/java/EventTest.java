@@ -10,4 +10,10 @@ public class EventTest {
     assertEquals(baseCost, testEvent.getCost());
   }
 
+  @Test
+  public void newParty_hasMoreCostWithMorePeople() {
+    Event testEvent = new Event();
+    int costWithTenPeople = 150;
+    assertEquals(costWithTenPeople, testEvent.getCost()); 
+  }
 }
